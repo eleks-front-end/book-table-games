@@ -1,13 +1,13 @@
-### Prerequisits
+# Prerequisits
 
-## Install node modules:
+##### Install node modules:
 
 `$ npm install`
 
-## Run SPA localy:
+##### Run SPA localy:
 
 `$ npm run start`
 
-## Build production:
+##### Build production:
 
 `$ npm run build`
