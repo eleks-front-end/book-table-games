@@ -1,0 +1,28 @@
+{
+  "plugins": [
+    "react"
+  ],
+  "extends": [
+    "react",
+    "./node_modules/@eleks/eslint-config-eleks/index.js"
+  ],
+  "globals": {
+    "WP_BASE_HREF": false,
+    "$": false
+  },
+  "rules": {
+    "one-var": 0,
+    "no-return-assign": 0,
+    "curly": 0,
+    "object-curly-spacing": [
+      2,
+      "always"
+    ],
+    "no-magic-numbers": 0
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  }
+}
