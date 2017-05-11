@@ -4,7 +4,6 @@
   "description": "Book table tennis, billiard - Allow to book table tennis and billiard",
   "author": "Yurii Levantovych",
   "scripts": {
-    "start": "webpack-dev-server --config webpack.dev.js --inline --progress --port 3000 --open",
     "clean": "rimraf dist/",
     "build": "npm run clean && webpack --config webpack.prod.js --progress --profile --bail",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -57,6 +56,9 @@
     "rimraf": "2.5.4",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.17.0",
-    "url-loader": "^0.5.8"
+    "url-loader": "^0.5.8",
+    "webpack": "^2.5.0",
+    "webpack-dev-server": "^2.4.5",
+    "webpack-merge": "^4.1.0"
   }
 }
