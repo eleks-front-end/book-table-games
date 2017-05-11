@@ -22,7 +22,12 @@ module.exports = {
     module: {
         rules: [{
             test: /\.js/,
-            use: ['imports-loader']
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['es2015']
+                }
+            }
         }, {
             test: /\.jsx$/,
             use: [{
