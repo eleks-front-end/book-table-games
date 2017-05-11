@@ -5,7 +5,7 @@
   "author": "Yurii Levantovych",
   "scripts": {
     "clean": "rimraf dist/",
-    "build": "npm run clean && webpack --config webpack.prod.js --progress --profile --bail",
+    "start": "npm run clean && webpack --config webpack.prod.js --progress --profile --bail",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
