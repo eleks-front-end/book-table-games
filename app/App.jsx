@@ -5,7 +5,7 @@ import history from 'history';
 
 import Base from './components/Layout/Base';
 // Application Styles
-import 'bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+import './styles/bootstrap.scss';
 import './styles/app.scss';
 
 ReactDOM.render(
