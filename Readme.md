@@ -12,4 +12,4 @@
 
 `$ npm run build`
 
-##### [https://book-table-games-cloned-domovoj1.c9users.io/](Demo)
+##### [Demo](https://book-table-games-cloned-domovoj1.c9users.io/)
