@@ -5,6 +5,9 @@ import Header from './Header';
 import Offsidebar from './Offsidebar';
 import Footer from './Footer';
 
+import { Route, Switch } from 'react-router-dom';
+import SingleView from '../SingleView/SingleView';
+
 class Base extends React.Component {
 
     componentWillMount () {
@@ -43,9 +46,10 @@ class Base extends React.Component {
                     transitionEnterTimeout={500}
                     transitionLeaveTimeout={500}
                 >
-                    {React.cloneElement(this.props.children, {
-                        key: Math.random()
-                    })}
+                    <Switch>
+                        <Route path="/" component={SingleView}/>
+                    </Switch>
+
                 </CSSTransitionGroup>
 
                 <Footer />

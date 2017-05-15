@@ -16,13 +16,13 @@ module.exports = webpackMerge(commonConfig, {
     },
 
     plugins: [
-        new webpack.NoErrorsPlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-            mangle: {
-                keep_fnames: true,
-                except: ['$super']
-            }
-        }),
+        new webpack.NoEmitOnErrorsPlugin(),
+        // new webpack.optimize.UglifyJsPlugin({
+        //     mangle: {
+        //         keep_fnames: true,
+        //         except: ['$super']
+        //     }
+        // }),
         new ExtractTextPlugin('[name].[hash].css'),
         new webpack.DefinePlugin({
             'process.env': {

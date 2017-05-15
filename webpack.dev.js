@@ -5,7 +5,7 @@ var commonConfig = require('./webpack.common.js');
 var path = require('path');
 
 module.exports = webpackMerge(commonConfig, {
-    devtool: '#source-map',
+    // devtool: '#source-map',
 
     entry: {
         dev: 'webpack/hot/only-dev-server'
