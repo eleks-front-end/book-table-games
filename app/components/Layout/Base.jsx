@@ -6,7 +6,9 @@ import Offsidebar from './Offsidebar';
 import Footer from './Footer';
 
 import { Route, Switch } from 'react-router-dom';
-import SingleView from '../SingleView/SingleView';
+import Dashboard from '../Dashboard/Dashboard';
+import Tennis from '../Tennis/Tennis';
+import Billiard from '../Billiard/Billard';
 
 class Base extends React.Component {
 
@@ -47,7 +49,9 @@ class Base extends React.Component {
                     transitionLeaveTimeout={500}
                 >
                     <Switch>
-                        <Route path="/" component={SingleView}/>
+                        <Route exact path="/" component={Dashboard}/>
+                        <Route path="/tennis" component={Tennis}/>
+                        <Route path="/billiard" component={Billiard}/>
                     </Switch>
 
                 </CSSTransitionGroup>

@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 var path = require('path');
 
 var baseHref = process.env.WP_BASE_HREF ? process.env.WP_BASE_HREF : '/';
@@ -93,6 +94,11 @@ module.exports = {
             name: 'vendor',
             filename: 'vendor[hash:6].js'
         }),
+        new CopyWebpackPlugin([{
+            from: 'img',
+            to: 'img',
+            context: path.join(__dirname, 'app')
+        }]),
         new HtmlWebpackPlugin({
             template: 'app/index.html',
             baseUrl: baseHref

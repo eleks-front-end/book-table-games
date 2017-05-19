@@ -76,19 +76,13 @@ $nav-top-item-desktop-active: $nav-top-item-mobile-active;
     }
 
     // Different Logo size depends on the navbar state
-    .brand-logo,
-    .brand-logo-collapsed {
-      > img {
-        margin: 0 auto;
-      }
-    }
     .brand-logo {
       display: block;
-      padding: 10px 15px;
-    }
-    .brand-logo-collapsed {
-      display: none;
-      padding: 6px 15px;
+      padding: 5px 10px;
+      > img {
+        margin: 0 auto;
+        height: 45px;
+      }
     }
   }
 
@@ -309,15 +303,6 @@ $nav-top-item-desktop-active: $nav-top-item-mobile-active;
   .aside-collapsed {
     .topnavbar {
       .navbar-header {
-        .brand-logo {
-          display: none;
-        }
-        .brand-logo-collapsed {
-          display: block;
-        }
-      }
-
-      .navbar-header {
         width: $nav-header-wd-toggled;
       }
 
@@ -332,15 +317,6 @@ $nav-top-item-desktop-active: $nav-top-item-mobile-active;
 @media only screen and (min-width: $mq-tablet) {
   .aside-collapsed-text {
     .topnavbar {
-      .navbar-header {
-        .brand-logo {
-          display: none;
-        }
-        .brand-logo-collapsed {
-          display: block;
-        }
-      }
-
       .navbar-header {
         width: $nav-header-wd-toggled-text;
       }
