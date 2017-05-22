@@ -11,7 +11,7 @@ class TennisView extends React.Component {
                     <Col xs={12} className="text-center">
                         <h1 className="text-thin">What do you prefer?</h1>
                         <Row>
-                            <Col lg={ 6 }>
+                            <Col lg={6}>
                                 <Well>
                                     <a href="/billiard">
                                         <h2>Billiard</h2>

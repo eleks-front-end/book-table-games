@@ -1,13 +1,13 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var baseHref = process.env.WP_BASE_HREF ? process.env.WP_BASE_HREF : '/';
+var context = path.join(__dirname, 'app');
 
 module.exports = {
-
     entry: {
         'vendor': './app/Vendor.jsx',
         'app': './app/App.jsx'
@@ -37,6 +37,18 @@ module.exports = {
                 loader: 'babel-loader',
                 options: {
                     presets: ['es2015', 'react'],
+                    plugins: [
+                        'transform-react-jsx',
+                        [
+                            'react-css-modules',
+                            {
+                                generateScopedName: '[name]__[local]___[hash:base64:5]',
+                                filetypes: {
+                                    '.scss': 'postcss-scss'
+                                }
+                            }
+                        ]
+                    ],
                     compact: false
                 }
             }],
@@ -47,16 +59,17 @@ module.exports = {
             use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
                 use: {
-                    loader: 'css-loader',
-                    options: {
-                        sourceMap: true
-                    }
+                    loader: 'css-loader'
                 }
             })
         }, {
             test: /\.css$/,
             include: path.join(process.cwd(), '/app'),
-            loader: 'raw'
+            use: [{
+                loader: 'style-loader'
+            }, {
+                loader: 'css-loader'
+            }]
         }, {
             test: /\.woff|\.woff2|\.svg|.eot|\.ttf/,
             use: {
@@ -76,6 +89,27 @@ module.exports = {
             }
         }, {
             test: /\.scss$/,
+            include: path.join(process.cwd(), '/app/components'),
+            use: [{
+                loader: 'style-loader'
+            }, {
+                loader: 'css-loader',
+                options: {
+                    modules: true,
+                    localIdentName: '[name]__[local]___[hash:base64:5]',
+                    sourceMap: true
+                }
+            }, {
+                loader: 'resolve-url-loader'
+            }, {
+                loader: 'sass-loader',
+                options: {
+                    outputStyle: 'expanded'
+                }
+            }]
+        }, {
+            test: /\.scss$/,
+            exclude: path.join(process.cwd(), '/app/components'),
             use: [{
                 loader: 'style-loader'
             }, {
@@ -97,7 +131,7 @@ module.exports = {
         new CopyWebpackPlugin([{
             from: 'img',
             to: 'img',
-            context: path.join(__dirname, 'app')
+            context
         }]),
         new HtmlWebpackPlugin({
             template: 'app/index.html',
