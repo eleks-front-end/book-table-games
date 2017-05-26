@@ -9,17 +9,14 @@ class DashboardView extends React.Component {
     render () {
         return (
             <ContentWrapper>
-                {/*<div className="content-heading">*/}
-                    {/*Select game*/}
-                {/*</div>*/}
                 <Row>
                     <Col xs={12} className="text-center">
-                        <h1 styleName="styles.title">What do you prefer?</h1>
+                        <h1 className="text-thin" styleName="styles.title">What do you prefer?</h1>
                         <Row>
                             <Col lg={6}>
                                 <Well>
                                     <a href="/tennis">
-                                        <img src="img/tennis.svg" alt="Table tennis" title="Go to main page table tennis"/>
+                                        <img src="img/tennis.svg" alt="Table tennis" title="Go to main page table tennis" styleName="game-image"/>
                                         <h2>Table tennis</h2>
                                     </a>
                                 </Well>
@@ -27,7 +24,7 @@ class DashboardView extends React.Component {
                             <Col lg={6}>
                                 <Well>
                                     <a href="/billiard">
-                                        <img src="img/billiard.svg" alt="Billiard" title="Go to main page billiard"/>
+                                        <img src="img/billiard.svg" alt="Billiard" title="Go to main page billiard" styleName="game-image"/>
                                         <h2>Billiard</h2>
                                     </a>
                                 </Well>

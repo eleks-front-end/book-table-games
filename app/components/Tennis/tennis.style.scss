@@ -1,0 +1,33 @@
+.wrapperTitleReserve {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.title {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.reserveButton {
+  margin-left: 20px;
+}
+
+.frameAdditionalLinks {
+  display: flex;
+  margin-bottom: 20px;
+  a {
+    margin-right: 20px;
+  }
+}
+
+.filter {
+  display: flex;
+  align-items: flex-end;
+}
+
+div.formGroup {
+  margin-bottom: 0;
+}

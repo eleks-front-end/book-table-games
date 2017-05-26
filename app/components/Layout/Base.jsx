@@ -51,6 +51,7 @@ class Base extends React.Component {
                     <Switch>
                         <Route exact path="/" component={Dashboard}/>
                         <Route path="/tennis" component={Tennis}/>
+                        <Route path="/tennis/reserve" component={Tennis}/>
                         <Route path="/billiard" component={Billiard}/>
                     </Switch>
 

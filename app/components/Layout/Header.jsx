@@ -1,7 +1,7 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
 import headerRun from './Header.run';
-import { MenuItem, NavDropdown, NavItem } from 'react-bootstrap';
+import { MenuItem, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 class Header extends React.Component {
@@ -36,7 +36,7 @@ class Header extends React.Component {
                     </div>
                     { /* END navbar header */ }
                     { /* START Nav wrapper */ }
-                    <div className="navbar-collapse collapse">
+                    <div className="nav-wrapper">
                         { /* START Left navbar */ }
                         <ul className="nav navbar-nav">
                             <NavDropdown noCaret eventKey={3} title="Games" id="dashboard-nav-dropdown">
