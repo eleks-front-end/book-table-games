@@ -3,6 +3,7 @@ import pubsub from 'pubsub-js';
 import headerRun from './Header.run';
 import { MenuItem, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
 
@@ -28,11 +29,11 @@ class Header extends React.Component {
                 <nav role="navigation" className="navbar topnavbar">
                     { /* START navbar header */ }
                     <div className="navbar-header">
-                        <a href="/" className="navbar-brand">
+                        <Link to="/" className="navbar-brand">
                             <div className="brand-logo">
                                 <img src="img/logo.svg" alt="App Logo" className="img-responsive"/>
                             </div>
-                        </a>
+                        </Link>
                     </div>
                     { /* END navbar header */ }
                     { /* START Nav wrapper */ }
@@ -40,10 +41,10 @@ class Header extends React.Component {
                         { /* START Left navbar */ }
                         <ul className="nav navbar-nav">
                             <NavDropdown noCaret eventKey={3} title="Games" id="dashboard-nav-dropdown">
-                                <LinkContainer to="tennis">
+                                <LinkContainer to="/tennis">
                                     <MenuItem className="animated fadeIn" eventKey={3.1}>Tennis</MenuItem>
                                 </LinkContainer>
-                                <LinkContainer to="billiard">
+                                <LinkContainer to="/billiard">
                                     <MenuItem className="animated fadeIn" eventKey={3.2}>Billiard</MenuItem>
                                 </LinkContainer>
                             </NavDropdown>

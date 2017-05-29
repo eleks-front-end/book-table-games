@@ -5,6 +5,7 @@ import styles from './tennis.style.scss';
 import cssModules from 'react-css-modules';
 import tennisRun from './Tennis.run';
 import TimePicker from 'rc-time-picker';
+import { Link } from 'react-router-dom';
 
 class TennisView extends React.Component {
     componentDidMount () {
@@ -25,9 +26,9 @@ class TennisView extends React.Component {
                     <Col xs={12}>
                         <div styleName="styles.wrapperTitleReserve">
                             <h1 className="text-thin" styleName="title">Table tennis</h1>
-                            <a href="/tennis/reserve">
+                            <Link to="/tennis/reserve">
                                 <Button bsStyle="primary" styleName="reserveButton">Reserve</Button>
-                            </a>
+                            </Link>
                         </div>
                         <div styleName="filter" className="row">
                             <div className="col-sm-2">
