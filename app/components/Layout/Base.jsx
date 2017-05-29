@@ -4,12 +4,7 @@ import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import Header from './Header';
 import Offsidebar from './Offsidebar';
 import Footer from './Footer';
-
-import { Route, Switch } from 'react-router-dom';
-import Dashboard from '../Dashboard/Dashboard';
-import Tennis from '../Tennis/Tennis';
-import ReserveTennis from '../ReserveTennis/ReserveTennis';
-import Billiard from '../Billiard/Billard';
+import Routes from '../Routes';
 
 class Base extends React.Component {
 
@@ -49,12 +44,8 @@ class Base extends React.Component {
                     transitionEnterTimeout={500}
                     transitionLeaveTimeout={500}
                 >
-                    <Switch>
-                        <Route exact path="/" component={Dashboard}/>
-                        <Route exact path="/tennis" component={Tennis}/>
-                        <Route path="/tennis/reserve" component={ReserveTennis}/>
-                        <Route path="/billiard" component={Billiard}/>
-                    </Switch>
+
+                <Routes/>
 
                 </CSSTransitionGroup>
 
