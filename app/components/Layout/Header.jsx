@@ -1,14 +1,14 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import headerRun from './Header.run';
 import { MenuItem, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Link } from 'react-router-dom';
+import initStateToggler from '../Common/toggle-state';
 
 class Header extends React.Component {
 
     componentDidMount () {
-        headerRun();
+        initStateToggler();
     }
 
     toggleUserblock (e) {

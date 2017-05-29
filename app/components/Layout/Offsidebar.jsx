@@ -1,6 +1,5 @@
 import React from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
-import offsidebarRun from './Offsidebar.run';
 
 class Offsidebar extends React.Component {
 
@@ -12,7 +11,6 @@ class Offsidebar extends React.Component {
     }
 
     componentDidMount () {
-        offsidebarRun();
     }
 
     handleSelect (key) {
@@ -26,7 +24,7 @@ class Offsidebar extends React.Component {
         const tabIconB = <em className="icon-user fa-lg" />;
 
         return (
-            <aside className="offsidebar hide">
+            <aside className="offsidebar">
                 { /* START Off Sidebar (right) */ }
                 <Tabs activeKey={this.state.key} onSelect={this.handleSelect.bind(this)} justified id="tabId">
                     <Tab eventKey={1} title={tabIconA}>

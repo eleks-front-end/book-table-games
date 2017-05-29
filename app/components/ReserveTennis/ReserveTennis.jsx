@@ -3,12 +3,17 @@ import ContentWrapper from '../Layout/ContentWrapper';
 import { Button, Col, OverlayTrigger, Row, Table, Tooltip } from 'react-bootstrap';
 import styles from './reserve-tennis.style.scss';
 import cssModules from 'react-css-modules';
-import tennisReserveRun from './ReserveTennis.run';
 import TimePicker from 'rc-time-picker';
 
 class TennisReserveView extends React.Component {
     componentDidMount () {
-        tennisReserveRun();
+        const { participantsSelect } = this;
+
+        if ($.fn.select2) {
+            $(participantsSelect).select2({
+                theme: 'bootstrap'
+            });
+        }
     }
 
     render () {
@@ -46,7 +51,7 @@ class TennisReserveView extends React.Component {
                             </div>
                             <div className="form-group col-sm-3">
                                 { /*  SELECT2 */ }
-                                <select id="select2-1" className="form-control" data-placeholder="Search by user">
+                                <select ref={input => this.participantsSelect = input} className="form-control" data-placeholder="Search by user">
                                     <option></option>
                                     <option value="1">Participant 1</option>
                                     <option value="2">Participant 2</option>

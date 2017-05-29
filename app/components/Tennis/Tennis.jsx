@@ -3,13 +3,18 @@ import ContentWrapper from '../Layout/ContentWrapper';
 import { Button, Col, OverlayTrigger, Row, Table, Tooltip } from 'react-bootstrap';
 import styles from './tennis.style.scss';
 import cssModules from 'react-css-modules';
-import tennisRun from './Tennis.run';
 import TimePicker from 'rc-time-picker';
 import { Link } from 'react-router-dom';
 
 class TennisView extends React.Component {
     componentDidMount () {
-        tennisRun();
+        const { participantsSelect } = this;
+
+        if ($.fn.select2) {
+            $(participantsSelect).select2({
+                theme: 'bootstrap'
+            });
+        }
     }
 
     render () {
@@ -36,7 +41,8 @@ class TennisView extends React.Component {
                             </div>
                             <div className="form-group col-sm-3" styleName="formGroup">
                                 { /*  SELECT2 */ }
-                                <select id="select2-1" className="form-control" data-placeholder="Search by user">
+                                <select className="form-control" data-placeholder="Search by user"
+                                        ref={input => this.participantsSelect = input}>
                                     <option></option>
                                     <option value="1">Participant 1</option>
                                     <option value="2">Participant 2</option>
