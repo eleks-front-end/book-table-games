@@ -3,14 +3,20 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+require('dotenv').config({ silent: true });
 
 var baseHref = process.env.WP_BASE_HREF ? process.env.WP_BASE_HREF : '/';
 var context = path.join(__dirname, 'app');
+var getClientEnvironment = require('./config/env');
+var env = getClientEnvironment(baseHref);
 
 module.exports = {
     entry: {
-        'vendor': './app/Vendor.jsx',
-        'app': './app/App.jsx'
+        'app': './app/App.jsx',
+        'vendor': [
+            'babel-polyfill',
+            './app/Vendor.jsx'
+        ]
     },
 
     resolve: {
@@ -26,9 +32,14 @@ module.exports = {
             use: {
                 loader: 'babel-loader',
                 options: {
-                    presets: ['es2015']
+                    presets: ['es2015'],
+                    plugins: [
+                        'transform-es2015-destructuring',
+                        'transform-object-rest-spread'
+                    ]
                 }
-            }
+            },
+            exclude: /node_modules/
         }, {
             test: /\.jsx$/,
             use: [{
@@ -47,7 +58,9 @@ module.exports = {
                                     '.scss': 'postcss-scss'
                                 }
                             }
-                        ]
+                        ],
+                        'transform-es2015-destructuring',
+                        'transform-object-rest-spread'
                     ],
                     compact: false
                 }
@@ -145,6 +158,7 @@ module.exports = {
         // https://github.com/moment/moment/issues/2979#issuecomment-189899510
         new webpack.DefinePlugin({
             WP_BASE_HREF: JSON.stringify(baseHref)
-        })
+        }),
+        new webpack.DefinePlugin(env)
     ]
 };

@@ -13,7 +13,7 @@ module.exports = webpackMerge(commonConfig, {
 
     output: {
         path: path.join(process.cwd(), '/dist'),
-        publicPath: 'http://localhost:3000/',
+        publicPath: 'http://localhost:4200/',
         filename: '[name].js',
         pathinfo: true
     },
