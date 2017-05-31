@@ -11,8 +11,7 @@ export default class LoginPage extends React.Component {
         const { ...props } = this.props;
         return (
             <div {...props}>
-                <h3>Welcome to the react-spa redux sample app!</h3>
-                <p>Please log in to continue</p>
+                <h1>Please log in to continue</h1>
                 <button onClick={this.handleLoginButtonClick}>Login with WSO2</button>
             </div>
         );
