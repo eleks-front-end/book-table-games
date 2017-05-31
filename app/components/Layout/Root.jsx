@@ -4,19 +4,8 @@ import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import Header from './Header';
 import Offsidebar from './Offsidebar';
 import Footer from './Footer';
-import Routes from '../Routes';
 
-class Base extends React.Component {
-
-    componentWillMount () {
-        $('body').addClass('layout-h');
-    }
-
-    componentWillUnmount () {
-        // Only necessary for demo to restore classic layout
-        $('body').removeClass('layout-h');
-    }
-
+class Root extends React.Component {
     render () {
         // Animations supported
         //      'rag-fadeIn'
@@ -45,7 +34,7 @@ class Base extends React.Component {
                     transitionLeaveTimeout={500}
                 >
 
-                <Routes/>
+                    { this.props.children }
 
                 </CSSTransitionGroup>
 
@@ -56,4 +45,4 @@ class Base extends React.Component {
 
 }
 
-export default Base;
+export default Root;

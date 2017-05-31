@@ -299,6 +299,18 @@ $nav-top-item-desktop-active: $nav-top-item-mobile-active;
   }
 }
 
+.user-toolbar {
+  float: right;
+  display: flex;
+  align-items: center;
+
+  .user-welcome {
+    color: #fff;
+    padding-right: 15px;
+    border-right: 1px solid #fff;
+  }
+}
+
 @media only screen and (min-width: $mq-tablet) {
   .aside-collapsed {
     .topnavbar {

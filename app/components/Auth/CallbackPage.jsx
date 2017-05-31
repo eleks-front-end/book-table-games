@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { CallbackComponent } from 'redux-oidc';
 import { push } from 'react-router-redux';
+
 import userManager from '../../utils/userManager.js';
 
 class CallbackPage extends React.Component {
@@ -16,10 +17,10 @@ class CallbackPage extends React.Component {
 
     render () {
         const { ...props } = this.props;
-        console.log(props);
         // just redirect to '/' in both cases
         return (
-            <CallbackComponent {...props} userManager={userManager} successCallback={this.handleCallbackSuccess.bind(this)}
+            <CallbackComponent {...props} userManager={userManager}
+                               successCallback={this.handleCallbackSuccess.bind(this)}
                                errorCallback={this.handleCallbackError.bind(this)}>
                 <div>
                     Redirecting...

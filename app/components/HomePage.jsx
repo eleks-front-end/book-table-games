@@ -8,6 +8,7 @@ const HomePage = props => {
     const { user } = props;
     return !user || user.expired ? <LoginPage/> : <MainPage />;
 };
+
 HomePage.propTypes = {
     user: React.PropTypes.object
 };

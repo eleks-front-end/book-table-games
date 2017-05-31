@@ -4,7 +4,7 @@ import { Button, Col, OverlayTrigger, Row, Table, Tooltip } from 'react-bootstra
 import styles from './tennis.style.scss';
 import cssModules from 'react-css-modules';
 import TimePicker from 'rc-time-picker';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 class TennisView extends React.Component {
     componentDidMount () {

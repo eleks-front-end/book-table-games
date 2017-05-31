@@ -1,23 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
-import history from 'history';
 import { Provider } from 'react-redux';
 import { OidcProvider } from 'redux-oidc';
 
-import Base from './components/Layout/Base';
+import Routes from './components/Routes';
 import store from './store';
 import userManager from './utils/userManager.js';
 // Application Styles
 import './styles/bootstrap.scss';
 import './styles/app.scss';
 
+import { Log } from 'oidc-client';
+Log.logger = console;
+
 ReactDOM.render(
     <Provider store={store}>
         <OidcProvider store={store} userManager={userManager}>
-            <Router history={history}>
-                <Base/>
-            </Router>
+            <Routes />
         </OidcProvider>
     </Provider>,
     document.getElementById('app')
