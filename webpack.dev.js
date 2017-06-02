@@ -8,7 +8,10 @@ module.exports = webpackMerge(commonConfig, {
     // devtool: '#source-map',
 
     entry: {
-        dev: 'webpack/hot/only-dev-server'
+        dev: [
+            'webpack-hot-middleware/client?path=/__webpack_hmr',
+            'webpack/hot/dev-server'
+        ]
     },
 
     output: {

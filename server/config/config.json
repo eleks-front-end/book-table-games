@@ -1,0 +1,14 @@
+{
+  "port": 4200,
+  "ip": "0.0.0.0",
+  "mongoose": {
+    "uri": "mongodb://localhost/BOOK_TABLE_GAMES",
+    "options": {
+      "server": {
+        "socketOptions": {
+          "keepAlive":1
+        }
+      }
+    }
+  }
+}

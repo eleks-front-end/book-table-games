@@ -1,14 +1,20 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
-import { CALL_WEBAPI_START } from '../constants';
-import { callWebAPISuccess } from '../actions';
+import { all, call, put, takeLatest, fork } from 'redux-saga/effects';
+import { GET_TENNIS_GAMES } from '../constants';
+import { getTennisGames } from '../actions';
 import apiRequest from '../utils/request';
 
-function* fetchWebAPIWorker () {
-    const url = process.env.REACT_APP_WEBAPI_URL;
+function* fetchTennisGames () {
+    const url = `${process.env.REACT_APP_WEBAPI_URL}games`;
     const result = yield call(apiRequest, url);
-    yield put(callWebAPISuccess(result.data));
+    yield put(getTennisGames(result.data));
 }
 
-export function* callWebAPISaga () {
-    yield takeLatest(CALL_WEBAPI_START, fetchWebAPIWorker);
+export function* getTennisGamesSaga () {
+    yield takeLatest(GET_TENNIS_GAMES, fetchTennisGames);
+}
+
+export default function* root () {
+    yield all([
+        fork(getTennisGamesSaga)
+    ]);
 }

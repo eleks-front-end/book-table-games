@@ -41,7 +41,8 @@ class TennisView extends React.Component {
                             </div>
                             <div className="form-group col-sm-3" styleName="formGroup">
                                 { /*  SELECT2 */ }
-                                <select ref={input => this.participantsSelect = input} className="form-control" data-placeholder="Search by user">
+                                <select ref={input => this.participantsSelect = input} className="form-control"
+                                        data-placeholder="Search by user">
                                     <option></option>
                                     <option value="1">Participant 1</option>
                                     <option value="2">Participant 2</option>

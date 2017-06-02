@@ -1,2 +1,1 @@
-export const CALL_WEBAPI_START = 'react-spa/CALL_WEBAPI_START';
-export const CALL_WEBAPI_SUCCESS = 'react-spa/CALL_WEBAPI_SUCCESS';
+export const GET_TENNIS_GAMES = 'book-table-games/GET_TENNIS_GAMES';
