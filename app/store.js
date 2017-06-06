@@ -5,7 +5,7 @@ import createOidcMiddleware from 'redux-oidc';
 import createSagaMiddleware from 'redux-saga';
 import reducer from './reducer';
 import userManager from './utils/userManager';
-import rootSaga from './sagas'
+import rootSaga from './sagas';
 
 // create the middleware with the userManager
 const oidcMiddleware = createOidcMiddleware(userManager);

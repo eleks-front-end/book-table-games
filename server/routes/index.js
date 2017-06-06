@@ -1,4 +1,4 @@
 module.exports = (app) => {
 
-    app.get('/games', require('./games').get);
+    app.get('/api/games', require('./games').get);
 };

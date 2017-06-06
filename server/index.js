@@ -28,9 +28,11 @@ const config = require('./config'),
     port = process.env.PORT || config.get('port'),
     ip = process.env.IP || config.get('ip');
 
-app.use((req, res) => {
-    res.sendFile(path.resolve(__dirname, '..', 'dist', 'index.html'));
-});
+if (ENV === 'production') {
+    app.use((req, res) => {
+        res.sendFile(path.resolve(__dirname, '..', 'dist', 'index.html'));
+    });
+}
 
 app.listen(port, ip, () => {
     console.log('Server running on http://%s:%s', ip, port);

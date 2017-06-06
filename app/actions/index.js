@@ -1,5 +1,6 @@
-import { GET_TENNIS_GAMES } from '../constants';
+import { GET_TENNIS_GAMES_SUCCESS } from '../constants';
 
-export const getTennisGames = () => ({
-    type: GET_TENNIS_GAMES
+export const getTennisGames = games => ({
+    type: GET_TENNIS_GAMES_SUCCESS,
+    games
 });

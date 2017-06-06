@@ -1,20 +1,20 @@
-import { all, call, put, takeLatest, fork } from 'redux-saga/effects';
-import { GET_TENNIS_GAMES } from '../constants';
+import { all, call, put, takeLatest } from 'redux-saga/effects';
 import { getTennisGames } from '../actions';
 import apiRequest from '../utils/request';
+import { GET_TENNIS_GAMES } from '../constants';
 
-function* fetchTennisGames () {
+function * fetchTennisGames () {
     const url = `${process.env.REACT_APP_WEBAPI_URL}games`;
     const result = yield call(apiRequest, url);
     yield put(getTennisGames(result.data));
 }
 
-export function* getTennisGamesSaga () {
+export function * watchFetchTennisGames () {
     yield takeLatest(GET_TENNIS_GAMES, fetchTennisGames);
 }
 
-export default function* root () {
+export default function * root () {
     yield all([
-        fork(getTennisGamesSaga)
+        watchFetchTennisGames()
     ]);
 }

@@ -1,23 +1,31 @@
 import React from 'react';
 import ContentWrapper from '../Layout/ContentWrapper';
-import { Button, Col, OverlayTrigger, Row, Table, Tooltip } from 'react-bootstrap';
+import { Button, Col, Row, Table, Tooltip } from 'react-bootstrap';
+import { connect } from 'react-redux';
 import styles from './tennis.style.scss';
 import cssModules from 'react-css-modules';
 import TimePicker from 'rc-time-picker';
 import { Link } from 'react-router';
+import { getVisibleGames } from '../../reducer/games';
+import GameItem from '../GameItem';
+import { GET_TENNIS_GAMES } from '../../constants';
 
 class TennisView extends React.Component {
     componentDidMount () {
         const { participantsSelect } = this;
+        const { dispatch } = this.props;
 
         if ($.fn.select2) {
             $(participantsSelect).select2({
                 theme: 'bootstrap'
             });
         }
+        dispatch({ type: GET_TENNIS_GAMES });
     }
 
     render () {
+        const { games } = this.props;
+
         const tooltipDelete = (
             <Tooltip id="tooltip">Cancel game</Tooltip>
         );
@@ -81,42 +89,48 @@ class TennisView extends React.Component {
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>8:00-9:00</td>
-                                <td colSpan="2">
-                                    <a href="">Participant 3</a>,&nbsp;
-                                    <a href="">Participant 4</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>9:00-10:00</td>
-                                <td>
-                                    <a href="">Participant 1</a>,&nbsp;
-                                    <a href="">Participant 2</a>,&nbsp;
-                                    <a href=""><b>Me</b></a>
-                                </td>
-                                <td>
-                                    <OverlayTrigger placement="top" overlay={tooltipDeleteMe}>
-                                        <Button bsStyle="danger" className="p-sm">
-                                            <em className="icon-trash"/>
-                                        </Button>
-                                    </OverlayTrigger>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>9:00-10:00</td>
-                                <td>
-                                    <a href="">Participant 1</a>,&nbsp;
-                                    <a href=""><b>Me</b></a>
-                                </td>
-                                <td>
-                                    <OverlayTrigger placement="top" overlay={tooltipDelete}>
-                                        <Button bsStyle="danger" className="p-sm">
-                                            <em className="icon-trash"/>
-                                        </Button>
-                                    </OverlayTrigger>
-                                </td>
-                            </tr>
+                            {games.map(game =>
+                                (<GameItem
+                                    key={game._id}
+                                    timeFrom={game.timeFrom}
+                                    timeTo={game.timeTo}/>)
+                            )}
+                            {/*<tr>*/}
+                            {/*<td>8:00-9:00</td>*/}
+                            {/*<td colSpan="2">*/}
+                            {/*<a href="">Participant 3</a>,&nbsp;*/}
+                            {/*<a href="">Participant 4</a>*/}
+                            {/*</td>*/}
+                            {/*</tr>*/}
+                            {/*<tr>*/}
+                            {/*<td>9:00-10:00</td>*/}
+                            {/*<td>*/}
+                            {/*<a href="">Participant 1</a>,&nbsp;*/}
+                            {/*<a href="">Participant 2</a>,&nbsp;*/}
+                            {/*<a href=""><b>Me</b></a>*/}
+                            {/*</td>*/}
+                            {/*<td>*/}
+                            {/*<OverlayTrigger placement="top" overlay={tooltipDeleteMe}>*/}
+                            {/*<Button bsStyle="danger" className="p-sm">*/}
+                            {/*<em className="icon-trash"/>*/}
+                            {/*</Button>*/}
+                            {/*</OverlayTrigger>*/}
+                            {/*</td>*/}
+                            {/*</tr>*/}
+                            {/*<tr>*/}
+                            {/*<td>9:00-10:00</td>*/}
+                            {/*<td>*/}
+                            {/*<a href="">Participant 1</a>,&nbsp;*/}
+                            {/*<a href=""><b>Me</b></a>*/}
+                            {/*</td>*/}
+                            {/*<td>*/}
+                            {/*<OverlayTrigger placement="top" overlay={tooltipDelete}>*/}
+                            {/*<Button bsStyle="danger" className="p-sm">*/}
+                            {/*<em className="icon-trash"/>*/}
+                            {/*</Button>*/}
+                            {/*</OverlayTrigger>*/}
+                            {/*</td>*/}
+                            {/*</tr>*/}
                             </tbody>
                         </Table>
                         <div styleName="frameAdditionalLinks">
@@ -137,4 +151,8 @@ class TennisView extends React.Component {
     }
 }
 
-export default cssModules(TennisView, styles);
+export default connect(
+    state => ({
+        games: getVisibleGames(state.games)
+    })
+)(cssModules(TennisView, styles));

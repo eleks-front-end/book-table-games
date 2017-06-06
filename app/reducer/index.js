@@ -1,14 +1,12 @@
-import { routerReducer } from 'react-router-redux';
 import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
 import { reducer as oidcReducer } from 'redux-oidc';
-import webapiReducer from './webapi';
+import games from './games';
 
-const reducer = combineReducers(
-    {
-        routing: routerReducer,
-        oidc: oidcReducer,
-        webapi: webapiReducer
-    }
-);
+const reducer = combineReducers({
+    routing: routerReducer,
+    oidc: oidcReducer,
+    games
+});
 
 export default reducer;
