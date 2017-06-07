@@ -12,8 +12,7 @@ import { GET_TENNIS_GAMES } from '../../constants';
 
 class TennisView extends React.Component {
     componentDidMount () {
-        const { participantsSelect } = this;
-        const { dispatch } = this.props;
+        const { participantsSelect, props: { dispatch } } = this;
 
         if ($.fn.select2) {
             $(participantsSelect).select2({
@@ -93,7 +92,8 @@ class TennisView extends React.Component {
                                 (<GameItem
                                     key={game._id}
                                     timeFrom={game.timeFrom}
-                                    timeTo={game.timeTo}/>)
+                                    timeTo={game.timeTo}
+                                    users={game.users}/>)
                             )}
                             {/*<tr>*/}
                             {/*<td>8:00-9:00</td>*/}

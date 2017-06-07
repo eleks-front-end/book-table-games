@@ -1,4 +1,4 @@
-import { all, call, put, takeLatest } from 'redux-saga/effects';
+import { all, call, put, takeEvery } from 'redux-saga/effects';
 import { getTennisGames } from '../actions';
 import apiRequest from '../utils/request';
 import { GET_TENNIS_GAMES } from '../constants';
@@ -10,7 +10,7 @@ function * fetchTennisGames () {
 }
 
 export function * watchFetchTennisGames () {
-    yield takeLatest(GET_TENNIS_GAMES, fetchTennisGames);
+    yield takeEvery(GET_TENNIS_GAMES, fetchTennisGames);
 }
 
 export default function * root () {

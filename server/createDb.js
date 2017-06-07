@@ -16,17 +16,20 @@ const createGames = callback => {
         {
             timeFrom: new Date(2017, 2, 6, 11, 0, 0, 0),
             timeTo: new Date(2017, 2, 6, 11, 10, 0, 0),
-            game: 'tennis'
+            game: 'tennis',
+            users: ['Participant 1', 'Participant 2']
         },
         {
             timeFrom: new Date(2017, 2, 6, 11, 30, 0, 0),
             timeTo: new Date(2017, 2, 6, 11, 50, 0, 0),
-            game: 'tennis'
+            game: 'tennis',
+            users: ['Participant 2', 'Participant 3']
         },
         {
             timeFrom: new Date(2017, 2, 6, 10, 0, 0, 0),
             timeTo: new Date(2017, 2, 6, 10, 40, 0, 0),
-            game: 'tennis'
+            game: 'tennis',
+            users: ['Participant 3', 'Participant 4']
         }
     ];
     async.each(games, (gameData, callback) => {
