@@ -1,0 +1,24 @@
+{
+  "port": 4200,
+  "ip": "0.0.0.0",
+  "mongoose": {
+    "uri": "mongodb://localhost/BOOK_TABLE_GAMES",
+    "options": {
+      "server": {
+        "socketOptions": {
+          "keepAlive": 1
+        }
+      }
+    }
+  },
+  "SCIMAPI": {
+    "baseUrl": "https://172.25.3.215:9443/wso2/scim",
+    "headers": {
+      "Authorization": ""
+    },
+    "agentOptions": {
+      "rejectUnauthorized": false
+    },
+    "json": true
+  }
+}

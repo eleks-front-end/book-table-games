@@ -9,6 +9,6 @@ app.use(express.static(path.resolve(__dirname, '..', 'dist')));
 // Setup logger
 app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
 
-require('./routes')(app);
+require('./actions')(app);
 
 module.exports = app;

@@ -1,7 +1,8 @@
 const app = require('./app'),
     ENV = process.env.NODE_ENV,
     path = require('path'),
-    historyApiFallback = require('connect-history-api-fallback');
+    historyApiFallback = require('connect-history-api-fallback'),
+    config = require('./config');
 
 if (ENV === 'development') {
     const webpack = require('webpack'),
@@ -24,8 +25,7 @@ if (ENV === 'development') {
     app.use(webpackHotMiddleware(compiler));
 }
 
-const config = require('./config'),
-    port = process.env.PORT || config.get('port'),
+const port = process.env.PORT || config.get('port'),
     ip = process.env.IP || config.get('ip');
 
 if (ENV === 'production') {

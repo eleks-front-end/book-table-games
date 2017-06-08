@@ -96,28 +96,6 @@ class TennisView extends React.Component {
                                     users={game.users}/>)
                             )}
                             {/*<tr>*/}
-                            {/*<td>8:00-9:00</td>*/}
-                            {/*<td colSpan="2">*/}
-                            {/*<a href="">Participant 3</a>,&nbsp;*/}
-                            {/*<a href="">Participant 4</a>*/}
-                            {/*</td>*/}
-                            {/*</tr>*/}
-                            {/*<tr>*/}
-                            {/*<td>9:00-10:00</td>*/}
-                            {/*<td>*/}
-                            {/*<a href="">Participant 1</a>,&nbsp;*/}
-                            {/*<a href="">Participant 2</a>,&nbsp;*/}
-                            {/*<a href=""><b>Me</b></a>*/}
-                            {/*</td>*/}
-                            {/*<td>*/}
-                            {/*<OverlayTrigger placement="top" overlay={tooltipDeleteMe}>*/}
-                            {/*<Button bsStyle="danger" className="p-sm">*/}
-                            {/*<em className="icon-trash"/>*/}
-                            {/*</Button>*/}
-                            {/*</OverlayTrigger>*/}
-                            {/*</td>*/}
-                            {/*</tr>*/}
-                            {/*<tr>*/}
                             {/*<td>9:00-10:00</td>*/}
                             {/*<td>*/}
                             {/*<a href="">Participant 1</a>,&nbsp;*/}
