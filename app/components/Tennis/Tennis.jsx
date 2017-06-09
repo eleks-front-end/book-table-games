@@ -9,6 +9,7 @@ import { Link } from 'react-router';
 import { getVisibleGames } from '../../reducer/games';
 import GameItem from '../GameItem';
 import { GET_TENNIS_GAMES } from '../../constants';
+import UsersAutocomplete from '../Common/UsersAutocomplete';
 
 class TennisView extends React.Component {
     componentDidMount () {
@@ -47,15 +48,7 @@ class TennisView extends React.Component {
                                 <Button>Only my games</Button>
                             </div>
                             <div className="form-group col-sm-3" styleName="formGroup">
-                                { /*  SELECT2 */ }
-                                <select ref={input => this.participantsSelect = input} className="form-control"
-                                        data-placeholder="Search by user">
-                                    <option></option>
-                                    <option value="1">Participant 1</option>
-                                    <option value="2">Participant 2</option>
-                                    <option value="3">Participant 3</option>
-                                    <option value="4">Participant 4</option>
-                                </select>
+                                <UsersAutocomplete/>
                             </div>
                             <div className="form-group col-sm-3" styleName="formGroup">
                                 <TimePicker

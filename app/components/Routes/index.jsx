@@ -21,10 +21,12 @@ class Routes extends React.Component {
                 <Route path="/" component={Root}>
                     <IndexRoute component={HomePage}/>
                     <Route path="callback" component={CallbackPage}/>
-                    <Route path="tennis" component={Tennis}/>
-                    <Route path="tennis/reserve" component={ReserveTennis}/>
-                    <Route path="billiard" component={Billiard}/>
-                    <Route path="profile" component={Profile}/>
+                    {/*<Route component={EnsureLoggedInContainer}>*/}
+                        <Route path="tennis" component={Tennis}/>
+                        <Route path="tennis/reserve" component={ReserveTennis}/>
+                        <Route path="billiard" component={Billiard}/>
+                        <Route path="profile" component={Profile}/>
+                    {/*</Route>*/}
                 </Route>
             </Router>
         );

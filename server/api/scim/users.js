@@ -5,7 +5,7 @@ exports.get = (req, res) => {
     const options = Object.assign({
         url: '/Users',
         qs: {
-            filter: `id Eq *${req.query.q}*`
+            filter: `userName Eq *${req.query.q}*`
         }
     }, config.get('SCIMAPI'));
 

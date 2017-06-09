@@ -4,44 +4,9 @@ import { Button, Col, OverlayTrigger, Row, Table, Tooltip } from 'react-bootstra
 import styles from './reserve-tennis.style.scss';
 import cssModules from 'react-css-modules';
 import TimePicker from 'rc-time-picker';
+import UsersAutocomplete from '../Common/UsersAutocomplete';
 
 class TennisReserveView extends React.Component {
-    componentDidMount () {
-        const { participantsSelect } = this;
-
-        const formatRepo = user => {
-            if (user.loading) {
-                return user.text;
-            }
-
-            return `<div>${user.id}</div>`;
-        }
-
-        const formatRepoSelection = user => user.id || user.text;
-
-        if ($.fn.select2) {
-            $(participantsSelect).select2({
-                ajax: {
-                    url: `${process.env.REACT_APP_WEBAPI_URL}users`,
-                    dataType: 'json',
-                    delay: 300,
-                    data: params => ({
-                        q: params.term
-                    }),
-                    processResults: data => ({
-                        results: data.Resources
-                    }),
-                    cache: true
-                },
-                minimumInputLength: 4,
-                escapeMarkup: markup => markup,
-                templateResult: formatRepo, // omitted for brevity, see the source of this page
-                templateSelection: formatRepoSelection,
-                theme: 'bootstrap'
-            });
-        }
-    }
-
     render () {
         const tooltipDelete = (
             <Tooltip id="tooltip">Cancel game</Tooltip>
@@ -76,15 +41,7 @@ class TennisReserveView extends React.Component {
                                 />
                             </div>
                             <div className="form-group col-sm-3">
-                                { /*  SELECT2 */ }
-                                <select ref={input => this.participantsSelect = input} className="form-control"
-                                        data-placeholder="Search by user" multiple>
-                                    <option></option>
-                                    <option value="1">Participant 1</option>
-                                    <option value="2">Participant 2</option>
-                                    <option value="3">Participant 3</option>
-                                    <option value="4">Participant 4</option>
-                                </select>
+                                <UsersAutocomplete/>
                             </div>
                         </Row>
                         <Button bsStyle="primary">Reserve</Button>
