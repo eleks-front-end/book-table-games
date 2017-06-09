@@ -3,15 +3,7 @@ import React from 'react';
 class UsersAutocomplete extends React.Component {
     componentDidMount () {
         const { participantsSelect } = this;
-
-        const formatRepo = user => {
-            if (user.loading) {
-                return user.text;
-            }
-
-            return `<div>${user.id}</div>`;
-        }
-
+        const formatRepo = user => user.loading ? user.text : `<div>${user.id}</div>`;
         const formatRepoSelection = user => user.id || user.text;
 
         if ($.fn.select2) {
