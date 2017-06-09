@@ -22,7 +22,7 @@ class UsersAutocomplete extends React.Component {
                 },
                 minimumInputLength: 4,
                 escapeMarkup: markup => markup,
-                templateResult: formatRepo, // omitted for brevity, see the source of this page
+                templateResult: formatRepo,
                 templateSelection: formatRepoSelection,
                 theme: 'bootstrap'
             });
