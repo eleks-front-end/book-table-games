@@ -9,9 +9,6 @@ const HomePage = props => {
     return !user || user.expired ? <LoginPage/> : <MainPage />;
 };
 
-HomePage.propTypes = {
-    user: React.PropTypes.object
-};
 const mapStateToProps = state => ({
     user: state.oidc.user
 });

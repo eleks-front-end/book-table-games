@@ -9,7 +9,6 @@ function createUserManagerSettings () {
     // Currently is seems to be hardcoded to environment.jwkKid == d0ec514a32b6f88c0abd12a2840699bdd3deba9d
     jwkPubkey.kid = process.env.REACT_APP_WSO2_KID; // TODO: remove this hack
     // jwkPubkey.kid = jsrsasign.KJUR.jws.JWS.getJWKthumbprint(jwkPubkey);
-    // console.log(jwkPubkey);
     return {
         authority: process.env.REACT_APP_WSO2_AUTHORITY,
         client_id: process.env.REACT_APP_WSO2_CLIENT_ID,

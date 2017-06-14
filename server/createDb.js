@@ -43,7 +43,6 @@ async.series([
     dropDatabase,
     createGames
 ], (err, results) => {
-    console.log(arguments);
     mongoose.disconnect();
     process.exit(Error ? 255 : 0);
 });

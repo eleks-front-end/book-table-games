@@ -6,22 +6,23 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 require('dotenv').config({ silent: true });
 
 var baseHref = process.env.WP_BASE_HREF ? process.env.WP_BASE_HREF : '/';
-var context = path.join(__dirname, 'app');
+var context = path.join(process.cwd(), 'app');
 var getClientEnvironment = require('./config/env');
 var env = getClientEnvironment(baseHref);
 
 module.exports = {
     entry: {
-        'app': './app/App.jsx',
+        'app': path.join(context, 'App.jsx'),
         'vendor': [
             'babel-polyfill',
-            './app/Vendor.jsx'
+            path.join(context, 'Vendor.jsx')
         ]
     },
 
     resolve: {
         modules: [
-            path.join(__dirname, ''), 'node_modules'
+            context,
+            'node_modules'
         ],
         extensions: ['.js', '.jsx']
     },
@@ -68,7 +69,7 @@ module.exports = {
             exclude: /node_modules/
         }, {
             test: /\.css$/,
-            exclude: path.join(process.cwd(), '/app'),
+            exclude: path.join(process.cwd(), '/'),
             use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
                 use: {
@@ -77,7 +78,7 @@ module.exports = {
             })
         }, {
             test: /\.css$/,
-            include: path.join(process.cwd(), '/app'),
+            include: path.join(process.cwd(), '/'),
             use: [{
                 loader: 'style-loader'
             }, {
@@ -102,7 +103,7 @@ module.exports = {
             }
         }, {
             test: /\.scss$/,
-            include: path.join(process.cwd(), '/app/components'),
+            include: path.join(context, 'components'),
             use: [{
                 loader: 'style-loader'
             }, {
@@ -122,7 +123,7 @@ module.exports = {
             }]
         }, {
             test: /\.scss$/,
-            exclude: path.join(process.cwd(), '/app/components'),
+            exclude: path.join(context, 'components'),
             use: [{
                 loader: 'style-loader'
             }, {
@@ -147,7 +148,7 @@ module.exports = {
             context
         }]),
         new HtmlWebpackPlugin({
-            template: 'app/index.html',
+            template: path.join(context, 'index.html'),
             baseUrl: baseHref
         }),
         new webpack.ProvidePlugin({

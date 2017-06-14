@@ -6,9 +6,9 @@ import styles from './tennis.style.scss';
 import cssModules from 'react-css-modules';
 import TimePicker from 'rc-time-picker';
 import { Link } from 'react-router';
-import { getVisibleGames } from '../../reducer/games';
+import { getVisibleGames } from 'reducer/games';
 import GameItem from '../GameItem';
-import { GET_TENNIS_GAMES } from '../../constants';
+import { GET_TENNIS_GAMES } from 'consts';
 import UsersAutocomplete from '../Common/UsersAutocomplete';
 
 class TennisView extends React.Component {
@@ -53,11 +53,9 @@ class TennisView extends React.Component {
                             <div className="form-group col-sm-3" styleName="formGroup">
                                 <TimePicker
                                     showSecond={false}
-                                    className="xxx"
                                     placeholder="From"
                                     // onChange={onChange}
                                     // format={format}
-                                    use12Hours
                                 />
                             </div>
                             <div className="form-group col-sm-3" styleName="formGroup">

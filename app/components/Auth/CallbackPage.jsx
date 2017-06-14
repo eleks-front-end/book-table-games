@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { CallbackComponent } from 'redux-oidc';
 import { push } from 'react-router-redux';
-
-import userManager from '../../utils/userManager.js';
+import userManager from 'utils/userManager.js';
 
 class CallbackPage extends React.Component {
     handleCallbackSuccess () {
@@ -11,7 +10,6 @@ class CallbackPage extends React.Component {
     };
 
     handleCallbackError (error) {
-        console.error(error);
         this.props.dispatch(push('/'));
     };
 

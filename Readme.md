@@ -6,6 +6,14 @@
 
 ##### Run SPA localy:
 
+Run mongod
+
+`mongod`
+
+Create test DB
+
+`$ npm run createDB`
+
 `$ npm run start`
 
 ##### Build production:

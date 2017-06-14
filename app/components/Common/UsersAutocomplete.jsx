@@ -32,8 +32,7 @@ class UsersAutocomplete extends React.Component {
     render () {
         return (
             <select ref={input => this.participantsSelect = input} className="form-control"
-                    data-placeholder="Search by user" multiple>
-            </select>
+                    data-placeholder="Search by user" multiple/>
         );
     }
 }

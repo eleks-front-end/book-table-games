@@ -16,8 +16,9 @@ Log.logger = console;
 ReactDOM.render(
     <Provider store={store}>
         <OidcProvider store={store} userManager={userManager}>
-            <Routes />
+            <Routes/>
         </OidcProvider>
-    </Provider>,
+    </Provider>
+    ,
     document.getElementById('app')
 );

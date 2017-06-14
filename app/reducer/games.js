@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { GET_TENNIS_GAMES_SUCCESS } from '../constants';
+import { GET_TENNIS_GAMES_SUCCESS } from 'consts';
 
 function games (state, action) {
     switch (action.type) {

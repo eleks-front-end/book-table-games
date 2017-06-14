@@ -9,7 +9,8 @@ import HomePage from '../HomePage';
 import CallbackPage from '../Auth/CallbackPage';
 import Profile from '../Profile/Profile';
 import Root from '../Layout/Root';
-
+// @todo check on logged and redirect
+// import EnsureLoggedInContainer from '../Auth/EnsureLoggedInContainer';
 import store from '../../store';
 
 const history = syncHistoryWithStore(browserHistory, store);

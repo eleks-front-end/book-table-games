@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 import initStateToggler from '../Common/toggle-state';
-import userManager from '../../utils/userManager';
+import userManager from 'utils/userManager';
 
 class Header extends React.Component {
 
@@ -91,12 +91,10 @@ class Header extends React.Component {
 
 }
 
-const mapStateToProps = state => {
-    return {
-        user: state.oidc.user,
-        history: state.routing
-    };
-}
+const mapStateToProps = state => ({
+    user: state.oidc.user,
+    history: state.routing
+});
 const mapDispatchToProps = dispatch => ({
     dispatch
 });

@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import moment from 'moment';
 
-export default class GameItem extends Component {
+export default class GameItem extends React.Component {
     render () {
         const { timeFrom, timeTo, users } = this.props;
         const formatDate = date => moment(date).format('HH:mm');
