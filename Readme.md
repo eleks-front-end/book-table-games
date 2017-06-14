@@ -8,11 +8,13 @@
 
 Run mongod
 
-`mongod`
+`$ mongod`
 
 Create test DB
 
 `$ npm run createDB`
+
+Run webpack and server
 
 `$ npm run start`
 
