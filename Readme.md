@@ -6,6 +6,8 @@ Copy `.env.sample` to `.env` paste here `REACT_APP_WSO2_CLIENT_ID` from your Ser
 
 Copy `server/config/config.sample.json` to `server/config/config.json` paste here SCIMAPI.headers.Authorization you can get it from a curl request headers https://docs.wso2.com/display/IS510/SCIM+APIs
 
+For more details about WSO2 Identity server integration you'll find [here](https://gitlab2.eleks-software.local/dotnet-reserve/wso2-ids-integration)
+
 ##### Install node modules:
 
 `$ npm install`
