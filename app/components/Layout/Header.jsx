@@ -1,23 +1,12 @@
 import React from 'react';
-import pubsub from 'pubsub-js';
 import { MenuItem, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
-import initStateToggler from '../Common/toggle-state';
+import DataToggleState from '../Common/DataToggleState';
 import userManager from 'utils/userManager';
 
 class Header extends React.Component {
-
-    componentDidMount () {
-        initStateToggler();
-    }
-
-    toggleUserblock (e) {
-        e.preventDefault();
-        pubsub.publish('toggleUserblock');
-    }
-
     onLogoutButtonClicked (event) {
         event.preventDefault();
         userManager.signoutRedirect(); // removes the user data from sessionStorage
@@ -73,9 +62,9 @@ class Header extends React.Component {
                                 { /* END Alert menu */ }
                                 { /* START Offsidebar button */ }
                                 <li>
-                                    <a href="#" data-toggle-state="offsidebar-open" data-no-persist="false">
+                                    <DataToggleState toggleClass="offsidebar-open">
                                         <em className="icon-notebook"/>
-                                    </a>
+                                    </DataToggleState>
                                 </li>
                                 { /* END Offsidebar menu */ }
                             </ul>

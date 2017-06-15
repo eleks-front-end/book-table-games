@@ -10,8 +10,8 @@ import CallbackPage from '../Auth/CallbackPage';
 import Profile from '../Profile/Profile';
 import Root from '../Layout/Root';
 // @todo check on logged and redirect
-// import EnsureLoggedInContainer from '../Auth/EnsureLoggedInContainer';
-import store from '../../store';
+import EnsureLoggedInContainer from '../Auth/EnsureLoggedInContainer';
+import store from 'store';
 
 const history = syncHistoryWithStore(browserHistory, store);
 
@@ -22,12 +22,12 @@ class Routes extends React.Component {
                 <Route path="/" component={Root}>
                     <IndexRoute component={HomePage}/>
                     <Route path="callback" component={CallbackPage}/>
-                    {/*<Route component={EnsureLoggedInContainer}>*/}
+                    <Route component={EnsureLoggedInContainer}>
                         <Route path="tennis" component={Tennis}/>
                         <Route path="tennis/reserve" component={ReserveTennis}/>
                         <Route path="billiard" component={Billiard}/>
                         <Route path="profile" component={Profile}/>
-                    {/*</Route>*/}
+                    </Route>
                 </Route>
             </Router>
         );

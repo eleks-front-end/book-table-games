@@ -4,12 +4,10 @@ import { push } from 'react-router-redux';
 
 class EnsureLoggedInContainer extends React.Component {
     componentDidUpdate () {
-        const { dispatch, currentURL, isLoggedIn } = this.props;
+        const { dispatch, isLoggedIn, oidc } = this.props;
 
-        console.log(isLoggedIn);
-        if (!isLoggedIn) {
+        if (!oidc.isLoadingUser && !isLoggedIn) {
             dispatch(push('/'));
-            // dispatch(setRedirectUrl(currentURL));
         }
     }
 
@@ -23,9 +21,9 @@ class EnsureLoggedInContainer extends React.Component {
     }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-    isLoggedIn: state.user && !state.user.expired,
-    currentURL: ownProps.location.pathname
+const mapStateToProps = state => ({
+    oidc: state.oidc,
+    isLoggedIn: state.oidc.user && !state.oidc.user.expired
 });
 
 export default connect(mapStateToProps)(EnsureLoggedInContainer);

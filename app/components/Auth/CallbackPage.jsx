@@ -15,6 +15,7 @@ class CallbackPage extends React.Component {
 
     render () {
         const { ...props } = this.props;
+        console.log(props);
         // just redirect to '/' in both cases
         return (
             <CallbackComponent {...props} userManager={userManager}
